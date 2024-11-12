@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonah Carpenter - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/images/logo.jpg" type="image/jpeg">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Jonah Carpenter</h1>
+        <!-- Navigation Section -->
+        <nav>
+            <ul>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <!-- Hire Me Dropdown -->
+                <li class="dropdown">
+                    <button class="dropdown-button">Hire Me</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.linkedin.com/in/jonah-carpenter-aa2644264/" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/jonahgcarpenter" target="_blank">GitHub</a>
+                        <a href="mailto:jonahgcarpenter@gmail.com">Email</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Profile Pic -->
+        <section id="profile">
+            <img src="/images/profile.jpg" alt="Profile Picture" id="profile-picture">
+            <p id="profile-description">Hi, My name is Jonah Carpenter. I like experiementing with smarthome tech, so that one day I can have an AI assistant like Iron Man</p>
+        </section>        
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item2">
+        
+            <!-- Container for education items -->
+            <div id="education-items-container">
+                
+                <!-- Bachelor's Degree -->
+                <div class="education-item" id="bachelors">
+                    <div class="text-content">
+                        <h3>Bachelor's Degree in Computer Science</h3>
+                        <div class="details">
+                            <p><em>University of Mississippi - Oxford, MS</em></p>
+                            <p><em>Graduating 2025</em></p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Associate's Degree -->
+                <div class="education-item" id="associates">
+                    <div class="text-content">
+                        <h3>Associate's Degree in Computer Science</h3>
+                        <div class="details">
+                            <p><em>Itawamba Community College - Fulton, MS</em></p>
+                            <p><em>Graduated 2022</em></p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- High School -->
+                <div class="education-item" id="highschool">
+                    <div class="text-content">
+                        <h3>High School</h3>
+                        <div class="details">
+                            <p><em>Tupelo High School - Tupelo, MS</em></p>
+                            <p><em>Graduated 2020</em></p>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </section>        
+        
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div id="experience-slideshow-container">
+
+                <!-- UnRaid Project Slide -->
+                <div class="experience-item project-link-1">
+                    <div class="link-content">
+                        <img src="images/snapshot1.jpg" alt="UnRaid Screenshot" class="snapshot">
+                        <h4>UnRaid</h4>
+                        <p>UnRaid is a versatile platform that can be used to set up a robust file storage system, run Docker containers, and host virtual machines (VMs) efficiently. This has allowed me to do things like run a Minecraft server, multiple webservers, and create my own local backup storage system that I use to store all my work.</p>
+                        <a href="https://unraid.net/product" target="_blank">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Home Assistant Project Slide -->
+                <div class="experience-item project-link-2">
+                    <div class="link-content">
+                        <img src="images/snapshot2.JPG" alt="Home Assistant Screenshot" class="snapshot">
+                        <h4>Home Assistant</h4>
+                        <p>Home Assistant is a versatile platform for automating and controlling smart home devices. It allows you to control almost any smart device from a centralized dashboard and supports local control for increased reliability and security. You can also create custom dashboards for personalized control. With Home Assistant, you can unify and streamline all your smart home needs in one powerful system.</p>
+                        <a href="https://www.home-assistant.io/" target="_blank">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Frigate Project Slide -->
+                <div class="experience-item project-link-3">
+                    <div class="link-content">
+                        <img src="images/snapshot3.JPG" alt="Frigate Screenshot" class="snapshot">
+                        <h4>Frigate</h4>
+                        <p>Frigate NVR is an advanced video surveillance system designed for smart home security. It uses AI-powered object detection to monitor cameras, allowing you to detect people, vehicles, and other objects with high accuracy. While running efficiently on local hardware, Frigate offers a privacy-focused, low-latency solution for monitoring and recording, making it an ideal choice for smart and secure home surveillance.</p>
+                        <a href="https://frigate.video/" target="_blank">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Double Take Project Slide -->
+                <div class="experience-item project-link-4">
+                    <div class="link-content">
+                        <img src="images/snapshot4.JPG" alt="Double Take Screenshot" class="snapshot">
+                        <h4>Double Take</h4>
+                        <p>Double Take is a facial recognition tool that integrates with Frigate NVR and uses systems like CompreFace to identify faces from your camera feeds. It can trigger automations in Home Assistant, such as unlocking doors when a recognized face is detected. Double Take processes images locally for privacy and security, providing a seamless way to enhance smart home automation through reliable facial recognition.</p>
+                        <a href="https://github.com/jakowenko/double-take" target="_blank">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <button id="prev-slide" class="slideshow-button">&#10094;</button>
+                <button id="next-slide" class="slideshow-button">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-item">
+                <h3 class="project-title">Turing Tickets</h3>
+                <p class="project-description">A ticket system I designed for a project</p>
+                <a href="https://turing.cs.olemiss.edu/~jgcarpe2/CS487/Project/default.html" class="project-link" target="_blank">Live server</a> | 
+                <a href="https://github.com/jonahgcarpenter/Turing-Tickets" class="project-link" target="_blank">GitHub Repo</a>
+            </div> 
+            <div class="project-item">
+                <h3 class="project-title">Enhance Your Living With Technology</h3>
+                <p class="project-description">A webpage about using tech to help in daily life</p>
+                <a href="https://turing.cs.olemiss.edu/~jgcarpe2/CS354/Project/index.html" class="project-link" target="_blank">Live server</a> | 
+                <a href="https://github.com/jonahgcarpenter/CSCI-354-Project" class="project-link" target="_blank">GitHub Repo</a>
+            </div> 
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>
+            <a href="https://www.linkedin.com/in/jonah-carpenter-aa2644264/" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/jonahgcarpenter" target="_blank">GitHub</a> | 
+            <a href="mailto:jonahgcarpenter@gmail.com">Email</a>
+        </p>
+        <p>&copy; Jonah Carpenter 2024, All rights reserved.</p>
+    </footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
