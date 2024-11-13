@@ -270,20 +270,20 @@ footer p a:hover {
 }
 
 /* Responsive styling for smaller screens */
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   #profile {
-    flex-direction: column;
+    flex-direction: column; /* Stack profile picture and description vertically */
     align-items: center;
   }
 
-  /* Reduce profile picture size */
+  /* Reduce profile picture size for smaller screens */
   #profile-picture {
     width: 100px;
   }
 
-  /* Allow description to stretch */
+  /* Adjust description styling for smaller screens */
   #profile-description {
-    max-width: 100%; /* Allow it to take full width on smaller screens */
+    max-width: 90%; /* Allow it to take nearly full width on smaller screens */
     text-align: center;
     font-size: 14px; /* Optionally reduce font size */
   }
@@ -379,7 +379,7 @@ footer p a:hover {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
+  transition: opacity 1.5s ease, max-height 1s ease;
   padding: 0;
 }
 
