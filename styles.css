@@ -595,6 +595,30 @@ footer p a:hover {
   background: linear-gradient(135deg, #2e7d32, #4caf50);
 }
 
+.project-link-5 {
+  background: linear-gradient(135deg, #6f7fbf, #8a94e4);
+}
+
+.project-link-6 {
+  background: linear-gradient(135deg, #d84315, #bf360c);
+}
+
+.project-link-7 {
+  background: linear-gradient(135deg, #00796b, #004d40);
+}
+
+.project-link-8 {
+  background: linear-gradient(135deg, #ab47bc, #ce93d8);
+}
+
+.project-link-9 {
+  background: linear-gradient(135deg, #546e7a, #78909c);
+}
+
+.project-link-10 {
+  background: linear-gradient(135deg, #e57373, #bf360c);
+}
+
 /* Styling for content inside each link card */
 .link-content h4 {
   font-size: 1.5em;
