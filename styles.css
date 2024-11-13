@@ -67,7 +67,7 @@ nav ul {
   padding: 0;
 }
 
-/* Display navigation links inline with spacing */
+/* Display navigation links inline with spacing for desktop */
 nav ul li {
   display: inline;
   margin-right: 20px;
@@ -85,6 +85,57 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+/* ==================== Hamburger Menu Styling ==================== */
+/* Hide the hamburger icon by default */
+.hamburger {
+  display: none;
+}
+
+/* Show the hamburger image icon on smaller screens */
+@media (max-width: 768px) {
+  /* Display the hamburger container and style the image */
+  .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 auto; /* Center the icon */
+    text-align: center;
+  }
+
+  /* Style for the Hamburger Icon Image */
+  .hamburger-icon {
+    width: 60px; /* Adjust the size as needed */
+    height: auto;
+    cursor: pointer; /* Display pointer cursor on hover */
+    transition: transform 0.1s ease-out; /* Smooth transition */
+  }
+
+  /* Hide the navigation menu initially */
+  nav ul {
+    display: none; /* Hide the navigation menu */
+    flex-direction: column; /* Stack items vertically when shown */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Full width to allow centering */
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Remove list styling */
+  }
+
+  /* Style for navigation items */
+  nav ul li {
+    margin: 10px 0; /* Space between menu items */
+    text-align: center; /* Center align text */
+  }
+
+  /* Center the entire menu on the screen when shown */
+  nav.show-menu ul {
+    display: flex; /* Show the menu as a column */
+    align-items: center;
+    justify-content: center; /* Center items vertically if needed */
+  }
+}
+
 /* ==================== Hire Me Dropdown Styling ==================== */
 /* Dropdown Container */
 nav ul li.dropdown {
@@ -93,7 +144,7 @@ nav ul li.dropdown {
 }
 
 /* Hire Me button styling */
-nav ul li .dropdown-button {
+nav ul li.dropdown .dropdown-button {
   font-size: 0.9rem;
   color: #d63384;
   background-color: black;
@@ -103,15 +154,18 @@ nav ul li .dropdown-button {
   font-weight: bold;
   display: inline-block;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
 }
 
 /* Change background color on hover for Hire Me button */
-nav ul li .dropdown-button:hover {
+nav ul li.dropdown .dropdown-button:hover {
   color: #e056fd;
+  text-decoration: underline;
 }
 
 /* Dropdown Content Styling */
-nav ul li .dropdown-content {
+nav ul li.dropdown .dropdown-content {
   display: none; /* Hidden by default */
   position: absolute;
   background-color: white;
@@ -121,26 +175,26 @@ nav ul li .dropdown-content {
   padding: 10px 0;
   z-index: 1;
   top: 100%; /* Position below the button */
+  pointer-events: auto;
 }
 
 /* Dropdown Links Styling */
-nav ul li .dropdown-content a {
-  color: #333;
+nav ul li.dropdown .dropdown-content a {
+  color: 333;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  font-weight: bold;
 }
 
 /* Change background color on hover for dropdown links */
-nav ul li .dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-/* Display dropdown content on hover */
-nav ul li.dropdown:hover .dropdown-content {
-  display: block;
+nav ul li.dropdown .dropdown-content a:hover {
+  color: #e056fd;
+  text-decoration: underline;
 }
 
 /* ==================== Text and Link Styling ==================== */
@@ -213,6 +267,26 @@ footer p a:hover {
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   color: #eee;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 425px) {
+  #profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Reduce profile picture size */
+  #profile-picture {
+    width: 100px;
+  }
+
+  /* Allow description to stretch */
+  #profile-description {
+    max-width: 100%; /* Allow it to take full width on smaller screens */
+    text-align: center;
+    font-size: 14px; /* Optionally reduce font size */
+  }
 }
 
 /* ==================== Education Section Styling ==================== */
@@ -309,14 +383,26 @@ footer p a:hover {
   padding: 0;
 }
 
-/* Reveal .details content on hover */
-.education-item:hover .details {
-  opacity: 1;
-  max-height: 100px;
-  padding: 5px 10px;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
+/* Reveal .details content on hover for desktop screens */
+@media (min-width: 769px) {
+  .education-item:hover .details {
+    opacity: 1;
+    max-height: 200px; /* Adjust as needed */
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+  }
+}
+
+/* Reveal .details content when in view on mobile screens */
+@media (max-width: 768px) {
+  .education-item.reveal-on-scroll .details {
+    opacity: 1;
+    max-height: 200px; /* Adjust as needed */
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+  }
 }
 
 /* Styling for Paragraphs with Emphasis */
@@ -403,18 +489,19 @@ footer p a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2em;
+  font-size: 1.5em; /* Adjust font size to center icon better */
   color: #333;
   background: rgba(255, 255, 255, 0.8);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px; /* Increased size for better centering */
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 2;
+  padding: 0; /* Remove padding for exact centering */
 }
 
 #prev-slide {
@@ -423,6 +510,42 @@ footer p a:hover {
 
 #next-slide {
   right: 10px;
+}
+
+/* ==================== Back to top for mobile ==================== */
+
+/* Scroll-to-top button styling */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px; /* Position at the bottom */
+  right: 20px; /* Position on the right side */
+  font-size: 1.5em; /* Adjust font size for icon */
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid black; /* Thin black outline */
+  border-radius: 50%;
+  width: 50px; /* Adjust size for circular button */
+  height: 50px;
+  display: none; /* Hidden by default for desktop */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0; /* Remove padding for exact centering */
+  opacity: 0; /* Start with hidden opacity */
+  transition: opacity 0.5s ease; /* Smooth fade-in effect */
+}
+
+/* Show the button only on screens 768px and below */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    display: flex; /* Display button on mobile */
+  }
+  
+  /* Fade in the button when it has the 'visible' class */
+  .scroll-to-top.visible {
+    opacity: 1; /* Fade in */
+  }
 }
 
 /* ==================== Link Card Styling for Slide Content ==================== */
@@ -507,6 +630,7 @@ footer p a:hover {
 /* Hover effect for "Learn More" buttons */
 .experience-item .link-content a:hover {
   color: #e056fd;
+  text-decoration: underline;
 }
 
 /* ==================== Projects Section Styling ==================== */

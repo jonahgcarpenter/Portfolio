@@ -14,6 +14,10 @@
         <h1>Jonah Carpenter</h1>
         <!-- Navigation Section -->
         <nav>
+            <!-- Hamburger Icon for Mobile -->
+            <span class="hamburger">
+                <img src="/images/hamburger.jpg" alt="Menu" class="hamburger-icon" id="spin-image">
+            </span>
             <ul>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -37,50 +41,7 @@
         <section id="profile">
             <img src="/images/profile.jpg" alt="Profile Picture" id="profile-picture">
             <p id="profile-description">Hi, My name is Jonah Carpenter. I like experiementing with smarthome tech, so that one day I can have an AI assistant like Iron Man</p>
-        </section>        
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item2">
-        
-            <!-- Container for education items -->
-            <div id="education-items-container">
-                
-                <!-- Bachelor's Degree -->
-                <div class="education-item" id="bachelors">
-                    <div class="text-content">
-                        <h3>Bachelor's Degree in Computer Science</h3>
-                        <div class="details">
-                            <p><em>University of Mississippi - Oxford, MS</em></p>
-                            <p><em>Graduating 2025</em></p>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Associate's Degree -->
-                <div class="education-item" id="associates">
-                    <div class="text-content">
-                        <h3>Associate's Degree in Computer Science</h3>
-                        <div class="details">
-                            <p><em>Itawamba Community College - Fulton, MS</em></p>
-                            <p><em>Graduated 2022</em></p>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- High School -->
-                <div class="education-item" id="highschool">
-                    <div class="text-content">
-                        <h3>High School</h3>
-                        <div class="details">
-                            <p><em>Tupelo High School - Tupelo, MS</em></p>
-                            <p><em>Graduated 2020</em></p>
-                        </div>
-                    </div>
-                </div>
-        
-            </div>
-        </section>        
+        </section>             
         
         <!-- Experience Section -->
         <section id="experience">
@@ -128,8 +89,10 @@
                 </div>
 
                 <!-- Navigation buttons -->
-                <button id="prev-slide" class="slideshow-button">&#10094;</button>
-                <button id="next-slide" class="slideshow-button">&#10095;</button>
+                <button id="prev-slide" class="slideshow-button">&#8592;</button>
+                <button id="next-slide" class="slideshow-button">&#8594;</button>
+                <!-- Scroll to Top Button -->
+                <button id="to-top" class="scroll-to-top" aria-label="Scroll to top">&#8593;</button>
             </div>
         </section>
 
@@ -149,6 +112,49 @@
                 <a href="https://github.com/jonahgcarpenter/Enhance-Your-Living-With-Technology" class="project-link" target="_blank">GitHub Repo</a>
             </div> 
         </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item2">
+        
+            <!-- Container for education items -->
+            <div id="education-items-container">
+                
+                <!-- Bachelor's Degree -->
+                <div class="education-item" id="bachelors">
+                    <div class="text-content">
+                        <h3>Bachelor's Degree in Computer Science</h3>
+                        <div class="details">
+                            <p><em>University of Mississippi - Oxford, MS</em></p>
+                            <p><em>Graduating 2025</em></p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Associate's Degree -->
+                <div class="education-item" id="associates">
+                    <div class="text-content">
+                        <h3>Associate's Degree in Computer Science</h3>
+                        <div class="details">
+                            <p><em>Itawamba Community College - Fulton, MS</em></p>
+                            <p><em>Graduated 2022</em></p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- High School -->
+                <div class="education-item" id="highschool">
+                    <div class="text-content">
+                        <h3>High School</h3>
+                        <div class="details">
+                            <p><em>Tupelo High School - Tupelo, MS</em></p>
+                            <p><em>Graduated 2020</em></p>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </section>  
 
     </main>
 
