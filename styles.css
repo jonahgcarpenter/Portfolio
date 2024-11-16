@@ -379,7 +379,7 @@ footer p a:hover {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 1.5s ease, max-height 1s ease;
+  transition: opacity 1.0s ease, max-height 1s ease;
   padding: 0;
 }
 
@@ -389,7 +389,6 @@ footer p a:hover {
     opacity: 1;
     max-height: 200px; /* Adjust as needed */
     padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
   }
 }
@@ -400,7 +399,6 @@ footer p a:hover {
     opacity: 1;
     max-height: 200px; /* Adjust as needed */
     padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
   }
 }
@@ -408,14 +406,14 @@ footer p a:hover {
 /* Styling for Paragraphs with Emphasis */
 .education-item .details p {
   font-size: 1rem;
-  color: black;
+  color: #ffff;
   line-height: 1.6;
   margin-bottom: 5px;
 }
 
 .education-item .details p em {
   font-style: italic;
-  color: black;
+  color: #ffff;
 }
 
 /* ==================== Experience Section Styling ==================== */
@@ -580,48 +578,49 @@ footer p a:hover {
 
 /* Background colors and gradient effects for each link card */
 .project-link-1 {
-  background: linear-gradient(135deg, #b45309, #d97706);
+  background: linear-gradient(135deg, #e0aaff, #c77dff); /* Brightest */
 }
 
 .project-link-2 {
-  background: linear-gradient(135deg, #5a9fb7, #1a759f);
+  background: linear-gradient(135deg, #c77dff, #9d4edd);
 }
 
 .project-link-3 {
-  background: linear-gradient(135deg, #1b1c1e, #333537);
+  background: linear-gradient(135deg, #9d4edd, #7b2cbf);
 }
 
 .project-link-4 {
-  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  background: linear-gradient(135deg, #7b2cbf, #5a189a);
 }
 
 .project-link-5 {
-  background: linear-gradient(135deg, #6f7fbf, #8a94e4);
+  background: linear-gradient(135deg, #5a189a, #3c096c);
 }
 
 .project-link-6 {
-  background: linear-gradient(135deg, #d84315, #bf360c);
+  background: linear-gradient(135deg, #3c096c, #240046);
 }
 
 .project-link-7 {
-  background: linear-gradient(135deg, #00796b, #004d40);
+  background: linear-gradient(135deg, #240046, #1a0036);
 }
 
 .project-link-8 {
-  background: linear-gradient(135deg, #ab47bc, #ce93d8);
+  background: linear-gradient(135deg, #1a0036, #14002b);
 }
 
 .project-link-9 {
-  background: linear-gradient(135deg, #546e7a, #78909c);
-}
-
-.project-link-10 {
-  background: linear-gradient(135deg, #e57373, #bf360c);
+  background: linear-gradient(135deg, #14002b, #100024);
 }
 
 .project-link-11 {
-  background: linear-gradient(135deg, #64b5f6, #1e88e5);
+  background: linear-gradient(135deg, #100024, #0a0018);
 }
+
+.project-link-10 {
+  background: linear-gradient(135deg, #0a0018, #000000); /* Darkest */
+}
+
 
 
 /* Styling for content inside each link card */
@@ -679,6 +678,19 @@ footer p a:hover {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Description Container Styling */
+
+.description-container {
+  text-align: left;
+  font-size: 16px;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 5px solid black;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Revealed state when in view */
