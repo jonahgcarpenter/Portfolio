@@ -619,6 +619,11 @@ footer p a:hover {
   background: linear-gradient(135deg, #e57373, #bf360c);
 }
 
+.project-link-11 {
+  background: linear-gradient(135deg, #64b5f6, #1e88e5);
+}
+
+
 /* Styling for content inside each link card */
 .link-content h4 {
   font-size: 1.5em;
