@@ -578,39 +578,39 @@ footer p a:hover {
 }
 
 /* Background colors and gradient effects for each link card */
-.project-link-1 {
+.project-link-6 {
   background: linear-gradient(135deg, #e0aaff, #c77dff); /* Brightest */
 }
 
-.project-link-2 {
+.project-link-5 {
   background: linear-gradient(135deg, #c77dff, #9d4edd);
 }
 
-.project-link-3 {
+.project-link-7 {
   background: linear-gradient(135deg, #9d4edd, #7b2cbf);
 }
 
-.project-link-4 {
+.project-link-9 {
   background: linear-gradient(135deg, #7b2cbf, #5a189a);
 }
 
-.project-link-5 {
+.project-link-8 {
   background: linear-gradient(135deg, #5a189a, #3c096c);
 }
 
-.project-link-6 {
+.project-link-1 {
   background: linear-gradient(135deg, #3c096c, #240046);
 }
 
-.project-link-7 {
+.project-link-2 {
   background: linear-gradient(135deg, #240046, #1a0036);
 }
 
-.project-link-8 {
+.project-link-3 {
   background: linear-gradient(135deg, #1a0036, #14002b);
 }
 
-.project-link-9 {
+.project-link-4 {
   background: linear-gradient(135deg, #14002b, #100024);
 }
 
