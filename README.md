@@ -1,6 +1,12 @@
 # Portfolio
 
-A portfollio webpage I wrote in an attempt to showcase my skills and gave me an opportunity to learn more about css and js. Play spin the burger on mobile screens.
+This is a portfolio webpage created to showcase my skills in software / web development. The project provided an opportunity to deepen my understanding of CSS and JavaScript. The webpage is designed to be responsive and includes a fun "spin the burger" feature on mobile screens.
+
+## Features
+
+- Responsive design
+- Interactive elements
+- "Spin the burger" game on mobile screens
 
 # Known Issues
 
