@@ -3,6 +3,7 @@ import ServerRack from './components/ServerRack';
 import ProjectsDrive from './components/drives/ProjectsDrive';
 import ExperienceDrive from './components/drives/ExperienceDrive';
 import AboutDrive from './components/drives/AboutDrive';
+import EducationDrive from './components/drives/EducationDrive';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/projects" element={<ProjectsDrive isOpen />} />
         <Route path="/experience" element={<ExperienceDrive isOpen />} />
         <Route path="/about" element={<AboutDrive isOpen />} />
-        <Route path="/education" element={<AboutDrive isOpen />} />
+        <Route path="/education" element={<EducationDrive isOpen />} />
       </Routes>
     </BrowserRouter>
   );

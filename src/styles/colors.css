@@ -1,0 +1,11 @@
+:root {
+  --rack-frame: #121212;
+  --rack-inner: #0a0a0a;
+  --drive-slot: #1a1a1a;
+  --drive-slot-border: #2a2a2a;
+  --drive-placeholder: #1d1d1d;
+  --drive-placeholder-hover: #2d2d2d;
+  --drive-unit: #202020;
+  --drive-unit-border: #333333;
+  --text-primary: #ffffff;
+}

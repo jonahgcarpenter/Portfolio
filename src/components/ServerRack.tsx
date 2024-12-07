@@ -6,11 +6,13 @@ import DragDrives from './DragDrives';
 import EducationDrive from './drives/EducationDrive';
 
 function ServerRack() {
+  const driveTitles = ['About Drive', 'Projects Drive', 'Experience Drive', 'Education Drive'];
+
   return (
     <div className="server-rack">
-      <div className="drive-slot" style={{ position: 'relative' }}>
+      <div className="drive-slot">
         <div className="drive">
-          <DragDrives>
+          <DragDrives titles={driveTitles}>
             <AboutDrive />
             <ProjectsDrive />
             <ExperienceDrive />

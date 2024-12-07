@@ -5,17 +5,17 @@ import { useNavigate } from 'react-router-dom';
 
 interface DragDrivesProps {
   children: React.ReactNode;
+  titles?: string[];
 }
 
-const DragDrives: React.FC<DragDrivesProps> = ({ children }) => {
+const DragDrives: React.FC<DragDrivesProps> = ({ children, titles = [] }) => {
   const navigate = useNavigate();
 
   const getDriveName = (child: React.ReactElement) => {
-    const componentType = child.type;
-    if (typeof componentType === 'function') {
-      return componentType.name.toLowerCase();
+    const componentName = child.type.name;
+    if (componentName) {
+      return componentName.replace('Drive', '').toLowerCase();
     }
-    // Fallback if component name can't be determined
     return '';
   };
 
@@ -32,6 +32,7 @@ const DragDrives: React.FC<DragDrivesProps> = ({ children }) => {
           const currentX = window.innerWidth / 2 + mx;
           const currentY = window.innerHeight / 2 + my;
           
+          // Only navigate if dragged outside the drive slot
           if (
             currentX < rect.left ||
             currentX > rect.right ||
@@ -42,6 +43,9 @@ const DragDrives: React.FC<DragDrivesProps> = ({ children }) => {
             if (driveName) {
               navigate(`/${driveName}`);
             }
+          } else {
+            // Reset position if not dragged outside
+            api.start({ x: 0, y: 0 });
           }
         }
       }
@@ -57,8 +61,12 @@ const DragDrives: React.FC<DragDrivesProps> = ({ children }) => {
           marginBottom: '10px'
         }}
         {...bind()}
+        className="drive-container"
       >
-        {child}
+        <div className="drive-title">{titles[index] || getDriveName(child)}</div>
+        <div className="drive-content-hidden">
+          {child}
+        </div>
       </animated.div>
     );
   };

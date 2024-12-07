@@ -9,7 +9,7 @@ const ExperienceDrive: React.FC<ExperienceDriveProps> = ({ isOpen = false }) => 
     <div className={`experience-drive ${isOpen ? 'open' : ''}`}>
       <h2>Experience</h2>
       {/* Add experience content here */}
-
+      <p>test</p>
     </div>
   );
 };

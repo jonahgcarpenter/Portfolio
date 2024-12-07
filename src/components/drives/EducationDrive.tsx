@@ -6,10 +6,10 @@ interface EducationDriveProps {
 
 const EducationDrive: React.FC<EducationDriveProps> = ({ isOpen = false }) => {
   return (
-    <div className={`Education-drive ${isOpen ? 'open' : ''}`}>
+    <div className={`education-drive ${isOpen ? 'open' : ''}`}>
       <h2>Education</h2>
       {/* Add Education content here */}
-
+      <p>test</p>
     </div>
   );
 };

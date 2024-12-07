@@ -9,6 +9,7 @@ const ProjectsDrive: React.FC<ProjectsDriveProps> = ({ isOpen = false }) => {
     <div className={`projects-drive ${isOpen ? 'open' : ''}`}>
       <h2>Projects</h2>
       {/* Add project content here */}
+      <p>test</p>
     </div>
   );
 };
