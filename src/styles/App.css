@@ -1,0 +1,40 @@
+:root {
+  --background-primary: #1a1a1a;
+  --background-secondary: #2a2a2a;
+  --border-color: #333;
+  --border-hover: #444;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --depth: 30px;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --rack-shadow: rgba(0, 0, 0, 0.5);
+  --perspective: 2500px;
+  --rotation: 0deg;
+  --drawer-open: 40px;
+  --handle-color: #444;
+  --drawer-depth: 100px;
+  --rack-height: 400px;
+  --drawer-pull: 30px;
+  --handle-hover: #666;
+  --rack-texture: #232323;
+  --drive-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --led-active: #00ff4c;
+  --led-inactive: #300;
+  --led-success: #2ecc71;
+  --led-error: #e74c3c;
+  --led-warning: #f1c40f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background-primary);
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+}

@@ -6,19 +6,36 @@ import DragDrives from './DragDrives';
 import EducationDrive from './drives/EducationDrive';
 
 function ServerRack() {
-  const driveTitles = ['About Drive', 'Projects Drive', 'Experience Drive', 'Education Drive'];
+  const drives = [
+    { path: 'about', title: 'About', component: AboutDrive },
+    { path: 'projects', title: 'Projects', component: ProjectsDrive },
+    { path: 'experience', title: 'Experience', component: ExperienceDrive },
+    { path: 'education', title: 'Education', component: EducationDrive }
+  ];
 
   return (
     <div className="server-rack">
-      <div className="drive-slot">
-        <div className="drive">
-          <DragDrives titles={driveTitles}>
-            <AboutDrive />
-            <ProjectsDrive />
-            <ExperienceDrive />
-            <EducationDrive />
-          </DragDrives>
+      <div className="rack-container">
+        <div className="rack-leds">
+          <div className="led" style={{"--led-current-color": "var(--led-success)"} as React.CSSProperties}></div>
+          <div className="led" style={{"--led-current-color": "var(--led-error)"} as React.CSSProperties}></div>
+          <div className="led" style={{"--led-current-color": "var(--led-warning)"} as React.CSSProperties}></div>
         </div>
+        <DragDrives>
+          {drives.map((drive, index) => (
+            <div 
+              key={index} 
+              data-path={drive.path}
+              className="drive"
+            >
+              <div className="drive-container">
+                <div className="drive-content">
+                  <h3>{drive.title}</h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </DragDrives>
       </div>
     </div>
   );

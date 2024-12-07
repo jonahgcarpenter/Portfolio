@@ -1,15 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../styles/DriveWindow.css';
 
-interface AboutDriveProps {
+interface DriveProps {
   isOpen?: boolean;
+  title?: string;
 }
 
-const AboutDrive: React.FC<AboutDriveProps> = ({ isOpen = false }) => {
+const AboutDrive: React.FC<DriveProps> = ({ isOpen = false, title }) => {
+  const navigate = useNavigate();
+  
+  if (!isOpen) return null;
+  
   return (
-    <div className={`about-drive ${isOpen ? 'open' : ''}`}>
-      <h2>About</h2>
-      {/* Add about content here */}
-      <p>test</p>
+    <div className="drive-window">
+      <div className="drive-header">
+        <h2>{title}</h2>
+        <button onClick={() => navigate('/')} className="close-button">×</button>
+      </div>
+      <div className="drive-content">
+        {/* Add specific content here */}
+        <p>About content goes here</p>
+      </div>
     </div>
   );
 };
