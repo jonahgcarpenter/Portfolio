@@ -12,9 +12,9 @@ const DragDrives: React.FC<DragDrivesProps> = ({ children, titles = [] }) => {
   const navigate = useNavigate();
 
   const getDriveName = (child: React.ReactElement) => {
-    const componentName = child.type.name;
-    if (componentName) {
-      return componentName.replace('Drive', '').toLowerCase();
+    const componentType = child.type;
+    if (typeof componentType === 'function' && 'name' in componentType) {
+      return componentType.name.replace('Drive', '').toLowerCase();
     }
     return '';
   };
