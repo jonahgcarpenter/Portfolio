@@ -1,26 +1,22 @@
-import DragDrives from './DragDrives';
 import '../styles/ServerRack.css';
+import ProjectsDrive from './drives/ProjectsDrive';
+import ExperienceDrive from './drives/ExperienceDrive';
+import AboutDrive from './drives/AboutDrive';
+import DragDrives from './DragDrives';
+import EducationDrive from './drives/EducationDrive';
 
 function ServerRack() {
-  const driveLinks = [
-    { id: 1, title: 'Projects', path: '/projects' },
-    { id: 2, title: 'About', path: '/about' },
-    { id: 3, title: 'Contact', path: '/contact' },
-    { id: 4, title: 'Skills', path: '/skills' }
-  ];
-
   return (
     <div className="server-rack">
-      <div className="rack-frame">
-        {driveLinks.map(link => (
-          <div key={link.id} className="drive-slot">
-            <DragDrives>
-              <div className="drive">
-                {link.title}
-              </div>
-            </DragDrives>
-          </div>
-        ))}
+      <div className="drive-slot" style={{ position: 'relative' }}>
+        <div className="drive">
+          <DragDrives>
+            <AboutDrive />
+            <ProjectsDrive />
+            <ExperienceDrive />
+            <EducationDrive />
+          </DragDrives>
+        </div>
       </div>
     </div>
   );
