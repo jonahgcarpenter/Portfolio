@@ -1,0 +1,22 @@
+.about-me {
+  color: var(--color-accent);
+}
+
+.about-me-text {
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  margin: var(--spacing-medium) 0;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: var(--spacing-large) 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
