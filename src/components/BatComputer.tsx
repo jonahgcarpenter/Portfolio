@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/BatComputer.css';
-import Folders from './Folders';
 import Projects from './Projects';
 import AboutMe from './AboutMe';
 import Contact from './Contact';
@@ -21,6 +20,17 @@ const BatComputer: React.FC = () => {
   const [showFolders, setShowFolders] = useState<boolean>(false);
   const [selectedFolder, setSelectedFolder] = useState<keyof FolderType | null>(null);
   const [showComponent, setShowComponent] = useState<boolean>(false);
+  const [selectedProject, setSelectedProject] = useState<boolean>(false);
+  const [currentProject, setCurrentProject] = useState<Project | null>(null);
+  const terminalContentRef = useRef<HTMLDivElement>(null);
+
+  const folders: (keyof FolderType)[] = [
+    'ABOUT_ME',
+    'PROJECTS',
+    'EXPERIENCE',
+    'EDUCATION',
+    'CONTACT'
+  ];
 
   const getTerminalMessages = (folder?: keyof FolderType) => {
     if (!folder) {
@@ -73,6 +83,12 @@ const BatComputer: React.FC = () => {
     }
   }, [currentIndex, selectedFolder]);
 
+  useEffect(() => {
+    if (showComponent && terminalContentRef.current) {
+      terminalContentRef.current.scrollTop = 0;
+    }
+  }, [showComponent, selectedFolder, selectedProject]);
+
   const handleFolderSelect = (folder: keyof FolderType) => {
     setMessages([]);
     setCurrentIndex(0);
@@ -82,11 +98,18 @@ const BatComputer: React.FC = () => {
   };
 
   const handleBack = () => {
-    setMessages([]);
-    setCurrentIndex(0);
-    setShowComponent(false);
-    setSelectedFolder(null);
-    setShowFolders(false);  // Set to false so the initial typing animation plays again
+    if (selectedProject && selectedFolder === 'PROJECTS') {
+      setSelectedProject(false);
+      setCurrentProject(null);
+    } else {
+      setMessages([]);
+      setCurrentIndex(0);
+      setShowComponent(false);
+      setSelectedFolder(null);
+      setShowFolders(false);
+      setSelectedProject(false);
+      setCurrentProject(null);
+    }
   };
 
   const renderSelectedComponent = () => {
@@ -94,13 +117,18 @@ const BatComputer: React.FC = () => {
       case 'ABOUT_ME':
         return <AboutMe onBack={handleBack} />;
       case 'PROJECTS':
-        return <Projects />;
+        return <Projects 
+          onBack={handleBack} 
+          onProjectSelect={() => setSelectedProject(true)} 
+          selectedProject={currentProject}
+          setSelectedProject={setCurrentProject}
+        />;
       case 'EXPERIENCE':
-        return <Experience/>;
+        return <Experience onBack={handleBack} />;
       case 'EDUCATION':
-        return <Education/>;
+        return <Education onBack={handleBack} />;
       case 'CONTACT':
-        return <Contact />;
+        return <Contact onBack={handleBack} />;
       default:
         return null;
     }
@@ -111,8 +139,12 @@ const BatComputer: React.FC = () => {
       <div className="terminal-header">
         <h1>JONAH-COMPUTER INTERFACE</h1>
       </div>
-      <div className="terminal-content">
-        {selectedFolder && <button onClick={handleBack} className="back-button">← Back</button>}
+      <div className="terminal-content" ref={terminalContentRef}>
+        {(selectedFolder || selectedProject) && (
+          <button onClick={handleBack} className="back-button">
+            {selectedProject ? '← Back to Projects' : '← Back to Main'}
+          </button>
+        )}
         {(!showComponent || !selectedFolder) && (
           <>
             {messages.map((message, index) => (
@@ -121,7 +153,21 @@ const BatComputer: React.FC = () => {
                 <span className="typed-text">{message}</span>
               </div>
             ))}
-            {showFolders && !selectedFolder && <Folders onSelectFolder={handleFolderSelect} />}
+            {showFolders && !selectedFolder && (
+              <div className="folders">
+                {folders.map((folder) => (
+                  <div 
+                    key={folder} 
+                    className="folder-item"
+                    onClick={() => handleFolderSelect(folder)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <span className="prompt">{'>>'}</span>
+                    <span>{folder}</span>
+                  </div>
+                ))}
+              </div>
+            )}
             {!showFolders && currentIndex < getTerminalMessages(selectedFolder).length && (
               <span className="cursor"></span>
             )}
