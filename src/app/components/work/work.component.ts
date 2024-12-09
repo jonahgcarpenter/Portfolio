@@ -15,7 +15,7 @@ interface Project {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="work" class="min-h-screen text-white py-20 px-4 sm:px-6 lg:px-8">
+    <section id="work" class="min-h-screen text-white py-20 pb-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="mb-12">
@@ -41,7 +41,7 @@ interface Project {
         </div>
 
         <!-- Project Display -->
-        <div class="space-y-12">
+        <div class="space-y-12 last:mb-0">
           <div *ngFor="let project of projects; let i = index"
                [class.hidden]="currentSlide !== i"
                class="grid md:grid-cols-2 gap-8">

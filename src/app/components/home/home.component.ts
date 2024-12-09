@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="home" class="min-h-screen text-white py-20 px-4 sm:px-6 lg:px-8">
+    <section id="home" class="min-h-screen text-white py-20 pb-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <!-- Hero Section -->
         <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
@@ -20,9 +20,12 @@ import { CommonModule } from '@angular/common';
               Building digital experiences with code and creativity
             </p>
             <div class="flex gap-4">
-              <a href="#contact" class="px-6 py-3 bg-purple-500 hover:bg-purple-600 rounded-lg font-semibold transition duration-300">
-                Get in Touch
-              </a>
+              <button 
+                (click)="copyEmail()" 
+                class="px-6 py-3 bg-purple-500 hover:bg-purple-600 rounded-lg font-semibold transition duration-300"
+              >
+                {{ buttonText }}
+              </button>
               <a href="#projects" class="px-6 py-3 border border-pink-500 hover:bg-pink-500/10 rounded-lg font-semibold transition duration-300">
                 View Work
               </a>
@@ -81,4 +84,19 @@ import { CommonModule } from '@angular/common';
     </section>
   `
 })
-export class HomeComponent {}
+export class HomeComponent {
+  buttonText = 'Copy My Email!';
+  private email = 'jonahgcarpenter@gmail.com';
+
+  async copyEmail() {
+    try {
+      await navigator.clipboard.writeText(this.email);
+      this.buttonText = 'Copied To Clipboard!';
+      setTimeout(() => {
+        this.buttonText = 'Copy My Email!';
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  }
+}

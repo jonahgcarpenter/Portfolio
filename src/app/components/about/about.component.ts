@@ -28,7 +28,7 @@ interface AboutInfo {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="about" class="min-h-screen text-white py-20 px-4 sm:px-6 lg:px-8">
+    <section id="about" class="min-h-screen text-white py-20 pb-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="mb-12">
@@ -41,7 +41,7 @@ interface AboutInfo {
         </div>
 
         <!-- Main Content -->
-        <div class="space-y-12">
+        <div class="space-y-12 last:mb-0">
           <!-- Personal Journey -->
           <div class="prose prose-lg text-gray-300">
             <p class="text-lg leading-relaxed">{{ aboutData.description }}</p>

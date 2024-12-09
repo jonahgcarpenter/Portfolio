@@ -6,15 +6,12 @@ import { ViewportScroller, CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <nav class="w-full h-[100px] fixed top-0 backdrop-blur-xl bg-gradient-to-r from-purple-900/70 to-pink-900/70 border-b border-pink-500/20 z-50 transition-all duration-300">
+    <nav class="w-full h-[100px] fixed top-0 backdrop-blur-xl bg-gradient-to-r from-purple-900/90 to-pink-900/90 border-b border-pink-500/20 z-50 transition-all duration-300">
       <div class="h-full max-w-6xl mx-auto flex justify-between items-center px-6">
         <!-- Logo/Brand -->
-        <h1 class="text-2xl font-bold tracking-wider">
-          <span class="relative">
-            <span class="absolute -inset-1 blur-xl bg-gradient-to-r from-purple-500/30 to-pink-500/30"></span>
-            <span class="relative bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Jonah Carpenter
-            </span>
+        <h1 class="text-xl font-bold">
+          <span class="relative bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Jonah Carpenter
           </span>
         </h1>
 
@@ -22,20 +19,20 @@ import { ViewportScroller, CommonModule } from '@angular/common';
         <div class="hidden md:flex items-center gap-8">
           <button *ngFor="let section of sections"
                   (click)="selectSection($event, section)"
-                  class="group relative px-4 py-2 rounded-lg border border-transparent hover:border-pink-500/30 transition-all duration-300"
+                  class="group relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:from-purple-500/30 hover:to-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
           >
             <span class="relative z-10 text-white transition-all duration-300" 
-                  [class]="currentSection === section ? 'text-pink-400' : 'group-hover:text-pink-400'">
+                  [class]="currentSection === section ? 'text-pink-400' : ''">
               {{ section.toUpperCase() }}
             </span>
           </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div class="md:hidden relative">
+        <div class="flex md:hidden relative">
           <button 
             (click)="toggleDropdown()"
-            class="relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
+            class="relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:from-purple-500/30 hover:to-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
           >
             <span class="text-white">
               {{ currentSection.toUpperCase() }}
@@ -43,11 +40,12 @@ import { ViewportScroller, CommonModule } from '@angular/common';
           </button>
 
           <div *ngIf="isDropdownOpen" 
-               class="absolute right-0 mt-2 w-48 backdrop-blur-xl bg-gradient-to-r from-purple-900/90 to-pink-900/90 rounded-lg shadow-lg border border-pink-500/20 overflow-hidden transition-all duration-300"
+               class="absolute right-0 mt-2 w-48 backdrop-blur-xl bg-gradient-to-r from-purple-900/90 to-pink-900/90 rounded-lg shadow-lg border border-pink-500/20 overflow-hidden"
           >
             <button *ngFor="let section of sections"
                     (click)="selectSection($event, section)"
-                    class="w-full px-4 py-3 text-left text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 transition-all duration-300 hover:text-pink-400"
+                    class="w-full px-4 py-3 text-left text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 transition-all duration-300"
+                    [class.text-pink-400]="currentSection === section"
             >
               {{ section.toUpperCase() }}
             </button>
@@ -57,9 +55,9 @@ import { ViewportScroller, CommonModule } from '@angular/common';
         <!-- Contact Button -->
         <button 
           (click)="toggleContactDropdown()"
-          class="relative px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500/50 to-pink-500/50 border border-pink-500/30 hover:from-purple-500/70 hover:to-pink-500/70 hover:border-pink-400/50 transition-all duration-300"
+          class="relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:from-purple-500/30 hover:to-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
         >
-          <span class="text-white font-semibold">
+          <span class="text-white">
             HIRE ME
           </span>
         </button>
