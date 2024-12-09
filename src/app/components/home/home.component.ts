@@ -76,8 +76,8 @@ interface Education {
             <div class="bg-purple-800/50 rounded-xl p-6 space-y-4">
               <h3 class="text-xl font-semibold text-pink-400">Education</h3>
               <div class="space-y-4">
-                <div *ngFor="let edu of education" class="space-y-2">
-                  <h4 class="text-lg font-semibold text-white">{{ edu.school }}</h4>
+                <div *ngFor="let edu of education" class="border-l-4 border-pink-400 pl-4 space-y-2">
+                  <h4 class="text-xl font-semibold text-white">{{ edu.school }}</h4>
                   <p class="text-gray-300">{{ edu.degree }} ({{ edu.year }})</p>
                   <p *ngIf="edu.description" class="text-gray-400 text-sm">{{ edu.description }}</p>
                 </div>
