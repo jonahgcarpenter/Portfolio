@@ -15,7 +15,7 @@ interface Project {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="work" class="text-white py-20 pb-32 px-4 sm:px-6 lg:px-8">
+    <section id="work" class="text-white py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="mb-12">

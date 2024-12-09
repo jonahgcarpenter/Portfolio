@@ -13,7 +13,7 @@ interface Education {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="home" class="min-h-screen text-white py-20 pb-32 px-4 sm:px-6 lg:px-8">
+    <section id="home" class="text-white py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <!-- Hero Section -->
         <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
