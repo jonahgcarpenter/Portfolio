@@ -9,8 +9,15 @@ interface HomeLab {
 
 interface Language {
   name: string;
-  confidence: number;  // changed from experience: string
+  confidence: number;
   details: string;
+}
+
+interface WorkExperience {
+  name: string;
+  startYear: number;
+  endYear?: number;  // Make endYear optional
+  description: string;
 }
 
 interface AboutInfo {
@@ -20,6 +27,7 @@ interface AboutInfo {
   journey: string;
   homeLab: HomeLab[];
   languages: Language[];
+  workExperience: WorkExperience[];
 }
 
 @Component({
@@ -74,6 +82,22 @@ interface AboutInfo {
               </div>
             </div>
           </div>
+
+          <!-- Work Experience Section -->
+          <div class="bg-purple-800/50 rounded-xl p-8 space-y-6">
+            <h3 class="text-2xl font-semibold text-pink-400">Work Experience</h3>
+            <p class="text-gray-300 mb-6">Previous work experiences that have shaped my professional journey.</p>
+            <div class="space-y-6">
+              <div *ngFor="let work of aboutData.workExperience" class="border-l-4 border-pink-400 pl-4 space-y-2">
+                <h4 class="text-xl font-semibold text-white">{{ work.name }}</h4>
+                <p class="text-gray-300">{{ work.description }}</p>
+                <p class="text-gray-400 text-sm">
+                  Period: {{ work.startYear }} - {{ work.endYear || 'Present' }}
+                  <span class="ml-2">({{ calculateYearsWorked(work) }})</span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -83,12 +107,8 @@ export class AboutComponent {
   aboutData: AboutInfo = {
     title: 'About Me',
     role: 'Full Stack / Software Developer',
-    description: `My journey into software development began with a fascination for technology and problem-solving. 
-      What started as a curious exploration has evolved into a passionate pursuit of creating innovative solutions 
-      through code.`,
-    journey: `Throughout my academic journey, I've discovered my love for building applications that make a real 
-      impact. I'm currently pursuing my Bachelor's degree while actively developing my skills in full-stack 
-      development. I believe in continuous learning and pushing myself to explore new technologies and methodologies.`,
+    description: `My intrest in technology started with Smart Home Automation and has grown into a passion for software development. After I saw how much we can utilize technology to make our lives easier, I decided to start learning how to make meaningful applications that can help fix issues in my day-to-day life.`,
+    journey: `For the most part I am still learning, but thats what makes it more interesting. In the future I wish to complete more Software Development projects, as I find adding functionaly more fun than anything else.`,
     homeLab: [
       {
         name: 'UnRaid Server',
@@ -152,10 +172,35 @@ export class AboutComponent {
         confidence: 3,
         details: 'Developed small projects and algorithms while at Itawamba Community College.'
       }
+    ],
+    workExperience: [
+      {
+        name: 'Walk-On\'s Sports Bistreaux',
+        startYear: 2023,
+        description: 'I worked as a server at Walk-Ons Restaurant in Oxford, MS. I where I futhered my existing skills, by expanding on my customer service skills.'
+      },
+      {
+        name: 'IT Helpdesk at University of Mississippi',
+        startYear: 2022,
+        endYear: 2024,
+        description: 'I worked as a student worker at the IT Helpdesk at the University of Mississippi. I learned how to troubleshoot and fix issues with computers, printers and proprietary systems used by the University.'
+      },
+      {
+        name: 'Fairpark Grill',
+        startYear: 2019,
+        endYear: 2022,
+        description: 'I worked as a server at the Fairpark-Grill Restaurant in Tupelo, MS. I learned how to work in a fast-paced environment and how to work with a team to get things done.'
+      }
     ]
   };
 
   get sortedLanguages(): Language[] {
     return [...this.aboutData.languages].sort((a, b) => b.confidence - a.confidence);
+  }
+
+  calculateYearsWorked(work: WorkExperience): string {
+    const endYear = work.endYear || new Date().getFullYear();
+    const years = endYear - work.startYear;
+    return `${years} ${years === 1 ? 'yr' : 'yrs'}`;
   }
 }

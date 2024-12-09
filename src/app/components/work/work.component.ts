@@ -24,7 +24,7 @@ interface Project {
               My Projects
             </span>
           </h1>
-          <p class="text-xl text-gray-300">Exploring creativity through code</p>
+          <p class="text-xl text-gray-300">Check my GitHub for more projects and consistent updates!</p>
         </div>
 
         <!-- Project Navigation -->
@@ -91,9 +91,9 @@ interface Project {
 export class WorkComponent {
   projects: Project[] = [
     {
-      name: 'AprilsLilPugs',
+      name: 'April\'s Lil Pugs',
       description: 'A website I built and currently maintain for my mom\'s pug breeding business. Where I spent alot of time thinking of a create way to implement admin functionality for her to update the site without having to know how to code. Be aware, she gets the deciding vote on the design of the site.',
-      technologies: ['Vite','Firebase'],
+      technologies: ['Vite:React','Firebase'],
       liveLink: 'https://alp.jonahsserver.com',
       githubLink: 'https://github.com/jonahgcarpenter/ALP.git',
       imageUrl: 'alp.jpg'
@@ -109,7 +109,7 @@ export class WorkComponent {
     {
       name: 'Enhance Your Living With Technology',
       description: 'A simple website I built for Web Development class. The website is a informational site about how I have personally leveraged smart home technology to enhance my life. You can login and view using the following credentials: Username: letmesee@gmail.com Password: letmesee',
-      technologies: ['JavaScript','HTML','CSS', 'Firebase'],
+      technologies: ['Vite:React', 'Firebase'],
       liveLink: 'https://turing.cs.olemiss.edu/~jgcarpe2/CS354/Project7/dist/',
       githubLink: 'https://github.com/jonahgcarpenter/Enhance-Your-Living-With-Technology',
       imageUrl: 'smarthomes.jpg'
