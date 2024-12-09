@@ -6,9 +6,3 @@ This is a portfolio webpage created to showcase my skills in software / web deve
 
 - Responsive design
 - Interactive elements
-- "Spin the burger" game on mobile screens
-
-# Known Issues
-
-- hamburger icon not directly clickable
-- reorder project slides, with new screenshots
