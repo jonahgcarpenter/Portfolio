@@ -94,7 +94,7 @@ export class WorkComponent {
       name: 'April\'s Lil Pugs',
       description: 'A website I built and currently maintain for my mom\'s pug breeding business. Where I spent alot of time thinking of a create way to implement admin functionality for her to update the site without having to know how to code. Be aware, she gets the deciding vote on the design of the site.',
       technologies: ['Vite:React','Firebase'],
-      liveLink: 'https://alp.jonahsserver.com',
+      liveLink: 'https://aprilslilpugs.com/',
       githubLink: 'https://github.com/jonahgcarpenter/ALP.git',
       imageUrl: 'alp.jpg'
     },
