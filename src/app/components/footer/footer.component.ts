@@ -26,11 +26,9 @@ import { CommonModule } from '@angular/common';
             <a *ngFor="let link of socialLinks" 
                [href]="link.url" 
                target="_blank"
-               class="relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:from-purple-500/30 hover:to-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
+               class="px-4 py-2 rounded-lg transition-colors border border-pink-500 hover:bg-pink-500/10"
             >
-              <span class="text-white">
-                {{ link.name }}
-              </span>
+              <span class="text-white">{{ link.name }}</span>
             </a>
           </div>
 
@@ -47,8 +45,8 @@ export class FooterComponent {
   currentYear = new Date().getFullYear();
   
   socialLinks = [
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/your-profile' },
-    { name: 'GitHub', url: 'https://github.com/your-username' },
-    { name: 'Email', url: 'mailto:your.email@example.com' }
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jonah-carpenter-aa2644264/' },
+    { name: 'GitHub', url: 'https://github.com/jonahgcarpenter' },
+    { name: 'Email', url: 'mailto:jonahgcarpenter@gmail.com' }
   ];
 }

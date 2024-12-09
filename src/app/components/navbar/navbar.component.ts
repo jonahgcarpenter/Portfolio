@@ -19,12 +19,10 @@ import { ViewportScroller, CommonModule } from '@angular/common';
         <div class="hidden md:flex items-center gap-8">
           <button *ngFor="let section of sections"
                   (click)="selectSection($event, section)"
-                  class="group relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:from-purple-500/30 hover:to-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
+                  [class]="'px-4 py-2 rounded-lg transition-colors text-white ' + 
+                    (currentSection === section ? 'bg-purple-500' : 'border border-pink-500 hover:bg-pink-500/10')"
           >
-            <span class="relative z-10 text-white transition-all duration-300" 
-                  [class]="currentSection === section ? 'text-pink-400' : ''">
-              {{ section.toUpperCase() }}
-            </span>
+            {{ section.toUpperCase() }}
           </button>
         </div>
 
@@ -32,7 +30,7 @@ import { ViewportScroller, CommonModule } from '@angular/common';
         <div class="flex md:hidden relative">
           <button 
             (click)="toggleDropdown()"
-            class="relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:from-purple-500/30 hover:to-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
+            class="px-4 py-2 rounded-lg transition-colors border border-pink-500 hover:bg-pink-500/10"
           >
             <span class="text-white">
               {{ currentSection.toUpperCase() }}
@@ -44,8 +42,8 @@ import { ViewportScroller, CommonModule } from '@angular/common';
           >
             <button *ngFor="let section of sections"
                     (click)="selectSection($event, section)"
-                    class="w-full px-4 py-3 text-left text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 transition-all duration-300"
-                    [class.text-pink-400]="currentSection === section"
+                    [class]="'w-full px-4 py-2 text-left text-white transition-colors ' + 
+                      (currentSection === section ? 'bg-purple-500' : 'hover:bg-pink-500/10')"
             >
               {{ section.toUpperCase() }}
             </button>
@@ -55,11 +53,10 @@ import { ViewportScroller, CommonModule } from '@angular/common';
         <!-- Contact Button -->
         <button 
           (click)="toggleContactDropdown()"
-          class="relative px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-pink-500/30 hover:from-purple-500/30 hover:to-pink-500/30 hover:border-pink-400/50 transition-all duration-300"
+          [class]="'px-4 py-2 rounded-lg transition-colors ' + 
+            (isContactDropdownOpen ? 'bg-purple-500' : 'border border-pink-500 hover:bg-pink-500/10')"
         >
-          <span class="text-white">
-            HIRE ME
-          </span>
+          <span class="text-white">HIRE ME</span>
         </button>
 
         <!-- Contact Dropdown -->
@@ -68,11 +65,9 @@ import { ViewportScroller, CommonModule } from '@angular/common';
         >
           <button *ngFor="let contact of contacts"
                   (click)="openLink(contact.url)"
-                  class="group relative w-full px-4 py-3 hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 transition-all duration-300"
+                  class="w-full px-4 py-2 text-left text-white transition-colors hover:bg-pink-500/10"
           >
-            <span class="text-white group-hover:text-pink-400 transition-all duration-300 flex items-center gap-2">
-              {{ contact.name.toUpperCase() }}
-            </span>
+            {{ contact.name.toUpperCase() }}
           </button>
         </div>
       </div>
@@ -85,9 +80,9 @@ export class NavbarComponent implements OnInit {
   sections = ['home', 'work', 'about'];
   isContactDropdownOpen = false;
   contacts = [
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/your-profile' },
-    { name: 'GitHub', url: 'https://github.com/your-username' },
-    { name: 'Email', url: 'mailto:your.email@example.com' }
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jonah-carpenter-aa2644264/' },
+    { name: 'GitHub', url: 'https://github.com/jonahgcarpenter' },
+    { name: 'Email', url: 'mailto:jonahgcarpenter@gmail.com' }
   ];
 
   constructor(private viewportScroller: ViewportScroller) {}

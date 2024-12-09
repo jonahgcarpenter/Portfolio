@@ -15,7 +15,7 @@ interface Project {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="work" class="min-h-screen text-white py-20 pb-32 px-4 sm:px-6 lg:px-8">
+    <section id="work" class="text-white py-20 pb-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="mb-12">
@@ -45,33 +45,41 @@ interface Project {
           <div *ngFor="let project of projects; let i = index"
                [class.hidden]="currentSlide !== i"
                class="grid md:grid-cols-2 gap-8">
-            <div class="space-y-6">
-              <h2 class="text-3xl font-bold">{{project.name}}</h2>
-              <p class="text-gray-300 text-lg leading-relaxed">{{project.description}}</p>
-              <div class="flex flex-wrap gap-2">
-                <span *ngFor="let tech of project.technologies" 
-                      class="px-3 py-1 bg-purple-800/50 text-pink-400 rounded-lg text-sm">
-                  {{tech}}
-                </span>
-              </div>
-              <div class="flex gap-4 pt-4">
-                <a *ngIf="project.liveLink" 
-                   [href]="project.liveLink" 
-                   target="_blank"
-                   class="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors">
-                  View Live
-                </a>
-                <a [href]="project.githubLink" 
-                   target="_blank"
-                   class="px-6 py-3 border border-pink-500 hover:bg-pink-500/10 rounded-lg transition-colors">
-                  Source Code
-                </a>
+            <div class="bg-purple-800/50 rounded-xl p-6 h-full flex flex-col">
+              <h3 class="text-xl font-semibold text-pink-400 mb-4">Project Details</h3>
+              <div class="flex-1 flex flex-col">
+                <div class="space-y-4">
+                  <h4 class="text-lg font-semibold text-white">{{project.name}}</h4>
+                  <p class="text-gray-300">{{project.description}}</p>
+                  <h3 class="text-xl font-semibold text-pink-400">Technologies Used</h3>
+                  <div class="flex flex-wrap gap-2">
+                    <span *ngFor="let tech of project.technologies" 
+                          class="px-4 py-2 bg-purple-950 text-white font-medium rounded-lg text-base">
+                      {{tech}}
+                    </span>
+                  </div>
+                </div>
+                <div class="mt-auto pt-6">
+                  <div class="flex gap-4">
+                    <a *ngIf="project.liveLink" 
+                       [href]="project.liveLink" 
+                       target="_blank"
+                       class="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors">
+                      View Live
+                    </a>
+                    <a [href]="project.githubLink" 
+                       target="_blank"
+                       class="px-6 py-3 border border-pink-500 hover:bg-pink-500/10 rounded-lg transition-colors">
+                      Source Code
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="relative aspect-square rounded-xl overflow-hidden border-4 border-pink-500/30 shadow-xl shadow-purple-500/20">
               <img [src]="project.imageUrl" 
                    [alt]="project.name" 
-                   class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                   class="w-full h-full object-cover"
                    (error)="handleImageError($event)"/>
             </div>
           </div>

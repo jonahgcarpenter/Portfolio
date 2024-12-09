@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface Education {
-  school: string;
-  degree: string;
-  year: string;
-  description?: string;
-}
-
 interface HomeLab {
   name: string;
   purpose: string;
   specs?: string;
+}
+
+interface Language {
+  name: string;
+  experience: string;
+  details: string;
 }
 
 interface AboutInfo {
@@ -19,8 +18,8 @@ interface AboutInfo {
   role: string;
   description: string;
   journey: string;
-  education: Education[];
   homeLab: HomeLab[];
+  languages: Language[];
 }
 
 @Component({
@@ -48,14 +47,16 @@ interface AboutInfo {
             <p class="text-lg leading-relaxed">{{ aboutData.journey }}</p>
           </div>
 
-          <!-- Education Section -->
+          <!-- Language Experience Section -->
           <div class="bg-purple-800/50 rounded-xl p-8 space-y-6">
-            <h3 class="text-2xl font-semibold text-pink-400">Education</h3>
+            <h3 class="text-2xl font-semibold text-pink-400">Programming Languages</h3>
             <div class="space-y-6">
-              <div *ngFor="let edu of aboutData.education" class="space-y-2">
-                <h4 class="text-xl font-semibold text-white">{{ edu.school }}</h4>
-                <p class="text-gray-300">{{ edu.degree }} ({{ edu.year }})</p>
-                <p *ngIf="edu.description" class="text-gray-400">{{ edu.description }}</p>
+              <div *ngFor="let lang of aboutData.languages" class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-xl font-semibold text-white">{{ lang.name }}</h4>
+                  <span class="text-pink-400">{{ lang.experience }}</span>
+                </div>
+                <p class="text-gray-400">{{ lang.details }}</p>
               </div>
             </div>
           </div>
@@ -80,27 +81,13 @@ interface AboutInfo {
 export class AboutComponent {
   aboutData: AboutInfo = {
     title: 'About Me',
-    role: 'Full Stack Developer',
+    role: 'Full Stack / Software Developer',
     description: `My journey into software development began with a fascination for technology and problem-solving. 
       What started as a curious exploration has evolved into a passionate pursuit of creating innovative solutions 
       through code.`,
     journey: `Throughout my academic journey, I've discovered my love for building applications that make a real 
       impact. I'm currently pursuing my Bachelor's degree while actively developing my skills in full-stack 
       development. I believe in continuous learning and pushing myself to explore new technologies and methodologies.`,
-    education: [
-      {
-        school: 'University of Mississippi (Ole Miss)',
-        degree: 'Bachelor of Science in Computer Science',
-        year: '2025',
-        description: 'Currently pursuing advanced coursework in software engineering and computer science.'
-      },
-      {
-        school: 'Itawamba Community College',
-        degree: 'Associate Degree',
-        year: '2022',
-        description: 'Completed foundational studies in computer science and general education.'
-      }
-    ],
     homeLab: [
       {
         name: 'Proxmox Hypervisor',
@@ -121,6 +108,28 @@ export class AboutComponent {
         name: 'Personal Cloud',
         purpose: 'Self-hosted services including Nextcloud, Bitwarden, and Nginx Proxy Manager',
         specs: 'Docker containers running on Proxmox VM'
+      }
+    ],
+    languages: [
+      {
+        name: 'TypeScript/JavaScript',
+        experience: '3 years',
+        details: 'Extensive experience with modern ES6+ features, Angular, Node.js, and React development.'
+      },
+      {
+        name: 'Python',
+        experience: '2 years',
+        details: 'Used for backend development, automation scripts, and data analysis projects.'
+      },
+      {
+        name: 'Java',
+        experience: '2 years',
+        details: 'Experience in building enterprise applications and Android development.'
+      },
+      {
+        name: 'C#',
+        experience: '1 year',
+        details: 'Developed Windows applications and Unity game projects.'
       }
     ]
   };

@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+interface Education {
+  school: string;
+  degree: string;
+  year: string;
+  description?: string;
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -22,11 +29,14 @@ import { CommonModule } from '@angular/common';
             <div class="flex gap-4">
               <button 
                 (click)="copyEmail()" 
-                class="px-6 py-3 bg-purple-500 hover:bg-purple-600 rounded-lg font-semibold transition duration-300"
+                class="px-6 py-3 rounded-lg transition-colors bg-purple-500 text-white hover:bg-purple-600"
               >
                 {{ buttonText }}
               </button>
-              <a href="#projects" class="px-6 py-3 border border-pink-500 hover:bg-pink-500/10 rounded-lg font-semibold transition duration-300">
+              <a 
+                href="#projects" 
+                class="px-6 py-3 rounded-lg transition-colors border border-pink-500 hover:bg-pink-500/10"
+              >
                 View Work
               </a>
             </div>
@@ -58,25 +68,14 @@ import { CommonModule } from '@angular/common';
               </p>
             </div>
             <div class="bg-purple-800/50 rounded-xl p-6 space-y-4">
-              <h3 class="text-xl font-semibold text-pink-400">Skills</h3>
-              <ul class="grid grid-cols-2 gap-4">
-                <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
-                  Full Stack Development
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
-                  Software Developement
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
-                  Database Management
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
-                  Networking & Security
-                </li>
-              </ul>
+              <h3 class="text-xl font-semibold text-pink-400">Education</h3>
+              <div class="space-y-4">
+                <div *ngFor="let edu of education" class="space-y-2">
+                  <h4 class="text-lg font-semibold text-white">{{ edu.school }}</h4>
+                  <p class="text-gray-300">{{ edu.degree }} ({{ edu.year }})</p>
+                  <p *ngIf="edu.description" class="text-gray-400 text-sm">{{ edu.description }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -99,4 +98,19 @@ export class HomeComponent {
       console.error('Failed to copy email:', err);
     }
   }
+
+  education: Education[] = [
+    {
+      school: 'University of Mississippi (Ole Miss)',
+      degree: 'Bachelor of Science in Computer Science',
+      year: '2025',
+      description: 'Currently pursuing advanced coursework in software engineering and computer science.'
+    },
+    {
+      school: 'Itawamba Community College',
+      degree: 'Associate Degree',
+      year: '2022',
+      description: 'Completed foundational studies in computer science and general education.'
+    }
+  ];
 }
