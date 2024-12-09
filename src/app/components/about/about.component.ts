@@ -9,7 +9,7 @@ interface HomeLab {
 
 interface Language {
   name: string;
-  experience: string;
+  confidence: number;  // changed from experience: string
   details: string;
 }
 
@@ -50,13 +50,12 @@ interface AboutInfo {
           <!-- Language Experience Section -->
           <div class="bg-purple-800/50 rounded-xl p-8 space-y-6">
             <h3 class="text-2xl font-semibold text-pink-400">Programming Languages</h3>
+            <p class="text-gray-300 mb-6">A collection of programming languages I've worked with, rated and sorted by my confidence level in using them effectively.</p>
             <div class="space-y-6">
-              <div *ngFor="let lang of aboutData.languages" class="space-y-2">
-                <div class="flex justify-between items-center">
-                  <h4 class="text-xl font-semibold text-white">{{ lang.name }}</h4>
-                  <span class="text-pink-400">{{ lang.experience }}</span>
-                </div>
-                <p class="text-gray-400">{{ lang.details }}</p>
+              <div *ngFor="let lang of sortedLanguages" class="border-l-4 border-pink-400 pl-4 space-y-2">
+                <h4 class="text-xl font-semibold text-white">{{ lang.name }}</h4>
+                <p class="text-gray-300">{{ lang.details }}</p>
+                <p class="text-gray-400 text-sm">Confidence: {{ lang.confidence }}/10</p>
               </div>
             </div>
           </div>
@@ -64,10 +63,12 @@ interface AboutInfo {
           <!-- HomeLab Section -->
           <div class="bg-purple-800/50 rounded-xl p-8 space-y-6">
             <h3 class="text-2xl font-semibold text-pink-400">My HomeLab Setup</h3>
-            <p class="text-gray-300 mb-6">I maintain a personal home lab environment where I experiment with various technologies and self-host services.</p>
+            <p class="text-gray-300 mb-6">I maintain two personal UnRaid servers where I experiment with various technologies and self-host services.</p>
             <div class="space-y-6">
               <div *ngFor="let server of aboutData.homeLab" class="border-l-4 border-pink-400 pl-4 space-y-2">
-                <h4 class="text-xl font-semibold text-white">{{ server.name }}</h4>
+                <div class="flex justify-between items-center">
+                  <h4 class="text-xl font-semibold text-white">{{ server.name }}</h4>
+                </div>
                 <p class="text-gray-300">{{ server.purpose }}</p>
                 <p *ngIf="server.specs" class="text-gray-400 text-sm">{{ server.specs }}</p>
               </div>
@@ -90,47 +91,71 @@ export class AboutComponent {
       development. I believe in continuous learning and pushing myself to explore new technologies and methodologies.`,
     homeLab: [
       {
-        name: 'Proxmox Hypervisor',
-        purpose: 'Main virtualization server hosting various VMs and containers',
-        specs: 'AMD Ryzen 7, 64GB RAM, 2TB NVMe Storage'
+        name: 'UnRaid Server',
+        purpose: 'My main server where I experiment with various technologies and self-host services.',
+        specs: 'AMD Ryzen 5, 32GB RAM, 2TB Redundant Storage'
       },
       {
-        name: 'TrueNAS Server',
-        purpose: 'Network Attached Storage for media and backups',
-        specs: '24TB Raw Storage in ZFS RAID, 32GB RAM'
+        name: 'Home Assistant Server',
+        purpose: 'The best part of a smarthome, the main hub for all my smart devices that help me in my day-to-day life.',
+        specs: 'Home Assistant Yellow'
       },
       {
-        name: 'Home Automation Server',
-        purpose: 'Running Home Assistant for smart home automation and monitoring',
-        specs: 'Raspberry Pi 4 with 8GB RAM'
-      },
-      {
-        name: 'Personal Cloud',
-        purpose: 'Self-hosted services including Nextcloud, Bitwarden, and Nginx Proxy Manager',
-        specs: 'Docker containers running on Proxmox VM'
+        name: 'Frigate Server',
+        purpose: 'A real-time object detection system for my security cameras. Where we also use Compreface for facial recognition to run automations in Home Assistant.',
+        specs: 'UnRaid Docker Container'
       }
     ],
     languages: [
       {
+        name: 'MySQL',
+        confidence: 8,
+        details: 'Majority of my projects at the University of Mississippi were built with the schools MariaDB server.'
+      },
+      {
+        name: 'PHP',
+        confidence: 8,
+        details: 'Majority of my projects at the University of Mississippi were built with PHP.'
+      },
+      {
+        name: 'HTML',
+        confidence: 9,
+        details: 'Used in some of my web development projects for building responsive UIs.'
+      },
+      {
+        name: 'CSS',
+        confidence: 8,
+        details: 'To make things look pretty and responsive.'
+      },
+      {
         name: 'TypeScript/JavaScript',
-        experience: '3 years',
-        details: 'Extensive experience with modern ES6+ features, Angular, Node.js, and React development.'
+        confidence: 7,
+        details: 'Have used in various projects for front-end and back-end development.'
+      },
+      {
+        name: 'Firebase',
+        confidence: 7,
+        details: 'Used for an easy database backend in my personal projects when applicable.'
       },
       {
         name: 'Python',
-        experience: '2 years',
-        details: 'Used for backend development, automation scripts, and data analysis projects.'
+        confidence: 4,
+        details: 'Used for simple scripts in my free time'
       },
       {
         name: 'Java',
-        experience: '2 years',
-        details: 'Experience in building enterprise applications and Android development.'
+        confidence: 3,
+        details: 'Developed small projects and algorithms while at Itawamba Community College.'
       },
       {
-        name: 'C#',
-        experience: '1 year',
-        details: 'Developed Windows applications and Unity game projects.'
+        name: 'C++',
+        confidence: 3,
+        details: 'Developed small projects and algorithms while at Itawamba Community College.'
       }
     ]
   };
+
+  get sortedLanguages(): Language[] {
+    return [...this.aboutData.languages].sort((a, b) => b.confidence - a.confidence);
+  }
 }
