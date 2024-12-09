@@ -92,7 +92,7 @@ export class WorkComponent {
   projects: Project[] = [
     {
       name: 'AprilsLilPugs',
-      description: 'Build for a local pug breeder to showcase and manage their grumble of pugs.',
+      description: 'A website I built and currently maintain for my mom\'s pug breeding business. Where I spent alot of time thinking of a create way to implement admin functionality for her to update the site without having to know how to code. Be aware, she gets the deciding vote on the design of the site.',
       technologies: ['Vite','Firebase'],
       liveLink: 'https://alp.jonahsserver.com',
       githubLink: 'https://github.com/jonahgcarpenter/ALP.git',
@@ -100,7 +100,7 @@ export class WorkComponent {
     },
     {
       name: 'Turing Tickets',
-      description: 'An IT ticket system for my Senior Project that uses PHPMailer to send ticket updates to the client.',
+      description: 'An IT ticket system for my Senior Project class. As a solo project I was responsible for the design, implementation, and documentation of the project. This web application also uses\'s the PHPMailer library to send emails to users when their ticket is updated / changed.',
       technologies: ['PHP','JavaScript','HTML','CSS','MySQL'],
       liveLink: 'https://turing.cs.olemiss.edu/~jgcarpe2/CS487/Project/',
       githubLink: 'https://github.com/jonahgcarpenter/Turing-Tickets.git',
@@ -108,7 +108,7 @@ export class WorkComponent {
     },
     {
       name: 'Enhance Your Living With Technology',
-      description: 'Webpage that explains the benefits of smarthome technology.',
+      description: 'A simple website I built for Web Development class. The website is a informational site about how I have personally leveraged smart home technology to enhance my life. You can login and view using the following credentials: Username: letmesee@gmail.com Password: letmesee',
       technologies: ['JavaScript','HTML','CSS', 'Firebase'],
       liveLink: 'https://turing.cs.olemiss.edu/~jgcarpe2/CS354/Project7/dist/',
       githubLink: 'https://github.com/jonahgcarpenter/Enhance-Your-Living-With-Technology',
@@ -116,7 +116,7 @@ export class WorkComponent {
     },
     {
       name: 'Rent Receipts',
-      description: 'A simple python program that generates receipts for my roomates parents.',
+      description: 'A simple python program I wrote to replace an Excel spreadsheet I was using to give my roomates receipts for the full cost of rent, water, and electricity bills per month. Where one of us pays all the seperate utilities and the other two pay more on rent so the cost is equal for all 3 roomates',
       technologies: ['Python'],
       liveLink: '',
       githubLink: 'https://github.com/jonahgcarpenter/Rent-Receipts',
