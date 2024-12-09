@@ -24,7 +24,7 @@ interface Education {
               </span>
             </h1>
             <p class="text-xl text-gray-300">
-              Building digital experiences with code and creativity
+              Using my computer skills to make my life easier
             </p>
             <div class="flex gap-4">
               <button 
@@ -34,10 +34,12 @@ interface Education {
                 {{ buttonText }}
               </button>
               <a 
-                href="#projects" 
+                href="/resume.pdf"
+                download="Jonah_Carpenter_Resume.pdf"
+                (click)="handleResumeClick($event)"
                 class="px-6 py-3 rounded-lg transition-colors border border-pink-500 hover:bg-pink-500/10"
               >
-                View Work
+                {{ resumeButtonText }}
               </a>
             </div>
           </div>
@@ -54,17 +56,21 @@ interface Education {
 
         <!-- About Section -->
         <div class="mt-32 space-y-8">
-          <h2 class="text-3xl font-bold">About Me</h2>
+          <h2 class="text-3xl font-bold">My Purpose</h2>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="space-y-4">
               <p class="text-gray-300 leading-relaxed">
-                Hi there! I'm a dedicated Full Stack Developer with a passion for creating efficient and scalable web applications. 
-                My journey in software development started with a curiosity for problem-solving and has evolved into a professional 
-                career where I get to build innovative solutions every day.
+                Hi, I'm Jonah! As an upcoming Computer Science graduate from the University of Mississippi, 
+                I combine technical expertise with hands-on development experience. My time at Ole Miss has
+                equipped me with strong problem-solving skills and a passion for creating innovative solutions.
               </p>
               <p class="text-gray-300 leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
-                or sharing knowledge with the developer community.
+                Through my role at the IT Helpdesk and various personal development projects, I've learned to bridge the gap between complex technology and user-friendly solutions. I'm particularly passionate
+                about full-stack development and creating impactful software that solves real-world problems.
+              </p>
+              <p class="text-gray-300 leading-relaxed">
+                In my free time, you can find me exploring new technologies, contributing to my open-source projects,
+                or watching a movie.
               </p>
             </div>
             <div class="bg-purple-800/50 rounded-xl p-6 space-y-4">
@@ -85,6 +91,7 @@ interface Education {
 })
 export class HomeComponent {
   buttonText = 'Copy My Email!';
+  resumeButtonText = 'Download Resume';
   private email = 'jonahgcarpenter@gmail.com';
 
   async copyEmail() {
@@ -99,18 +106,28 @@ export class HomeComponent {
     }
   }
 
+  handleResumeClick(event: MouseEvent) {
+    this.resumeButtonText = 'Downloading...';
+    setTimeout(() => {
+      this.resumeButtonText = 'Success!';
+      setTimeout(() => {
+        this.resumeButtonText = 'Download Resume';
+      }, 1000);
+    }, 1500);
+  }
+
   education: Education[] = [
     {
-      school: 'University of Mississippi (Ole Miss)',
-      degree: 'Bachelor of Science in Computer Science',
+      school: 'University of Mississippi',
+      degree: 'Bachelor Degree in Computer Science',
       year: '2025',
-      description: 'Currently pursuing advanced coursework in software engineering and computer science.'
+      description: 'Oxford, Mississippi'
     },
     {
       school: 'Itawamba Community College',
-      degree: 'Associate Degree',
+      degree: 'Associates Degree in Computer Science',
       year: '2022',
-      description: 'Completed foundational studies in computer science and general education.'
+      description: 'Fulton, Mississippi'
     }
   ];
 }
