@@ -10,13 +10,15 @@ import { FooterComponent } from './components/footer/footer.component';
   standalone: true,
   imports: [NavbarComponent, HomeComponent, WorkComponent, AboutComponent, FooterComponent],
   template: `
-    <app-navbar />
-    <main>
-      <app-home />
-      <app-work />
-      <app-about />
-    </main>
-    <app-footer />
+    <div class="min-h-screen bg-gradient-to-b from-purple-900 to-pink-900">
+      <app-navbar />
+      <main style="padding-top: 64px;">
+        <app-home />
+        <app-work />
+        <app-about />
+      </main>
+      <app-footer />
+    </div>
   `
 })
 export class AppComponent {}
