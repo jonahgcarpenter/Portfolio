@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 interface Project {
   name: string;
@@ -13,7 +14,7 @@ interface Project {
 @Component({
   selector: 'app-work',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HammerModule],
   template: `
     <section id="work" class="text-white py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
@@ -76,17 +77,33 @@ interface Project {
                 </div>
               </div>
             </div>
-            <div class="relative aspect-square rounded-xl overflow-hidden border-4 border-pink-500/30 shadow-xl shadow-purple-500/20">
+            <div class="relative aspect-square rounded-xl overflow-hidden border-4 border-pink-500/30 shadow-xl shadow-purple-500/20"
+                 (swipeleft)="onSwipe($event, 'left')"
+                 (swiperight)="onSwipe($event, 'right')">
               <img [src]="project.imageUrl" 
                    [alt]="project.name" 
-                   class="w-full h-full object-cover"
+                   class="w-full h-full object-cover pointer-events-none"
                    (error)="handleImageError($event)"/>
+              <!-- Swipe indicator -->
+              <div class="md:hidden absolute inset-0 pointer-events-none">
+                <div class="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black/20 to-transparent"></div>
+                <div class="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black/20 to-transparent"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  `
+  `,
+  styles: [`
+    @keyframes fadeOut {
+      0% { opacity: 0.7; }
+      100% { opacity: 0; }
+    }
+    .animate-fadeOut {
+      animation: fadeOut 2s ease-out forwards;
+    }
+  `]
 })
 export class WorkComponent {
   projects: Project[] = [
@@ -140,5 +157,15 @@ export class WorkComponent {
 
   handleImageError(event: any) {
     event.target.src = 'assets/placeholder.jpg'; // Fallback image
+  }
+
+  onSwipe(event: any, direction: 'left' | 'right') {
+    if (window.innerWidth >= 768) return; // Only handle swipes on mobile
+    
+    if (direction === 'left') {
+      this.nextSlide();
+    } else {
+      this.prevSlide();
+    }
   }
 }

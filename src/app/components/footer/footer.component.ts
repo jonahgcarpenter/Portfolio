@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
             <h2 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Jonah Carpenter
             </h2>
-            <p class="mt-2 text-gray-400">Full Stack / Software Developer</p>
+            <p class="mt-2 text-gray-400">Full Stack Developer</p>
           </div>
 
           <!-- Social Links -->
