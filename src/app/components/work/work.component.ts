@@ -81,6 +81,18 @@ interface Project {
                    [alt]="project.name" 
                    class="w-full h-full object-cover pointer-events-none"
                    (error)="handleImageError($event)"/>
+              <div (click)="prevSlide()" 
+                   class="absolute left-0 top-0 w-1/4 h-full cursor-pointer flex items-center transition-opacity group">
+                <span class="opacity-0 group-hover:opacity-100 transition-all transform group-hover:scale-125 bg-purple-500/80 p-2 rounded-r-lg">
+                  &#8592;
+                </span>
+              </div>
+              <div (click)="nextSlide()" 
+                   class="absolute right-0 top-0 w-1/4 h-full cursor-pointer flex items-center justify-end transition-opacity group">
+                <span class="opacity-0 group-hover:opacity-100 transition-all transform group-hover:scale-125 bg-purple-500/80 p-2 rounded-l-lg">
+                  &#8594;
+                </span>
+              </div>
             </div>
           </div>
         </div>
