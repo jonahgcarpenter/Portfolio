@@ -25,7 +25,7 @@ interface Project {
               My Projects
             </span>
           </h1>
-          <p class="text-xl text-gray-300">Check my GitHub for more projects and consistent updates!</p>
+          <p class="text-xl text-gray-300">I'm always working on something so check my GitHub for more projects and consistent updates!</p>
         </div>
 
         <!-- Project Navigation -->

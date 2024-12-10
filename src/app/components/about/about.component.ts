@@ -45,8 +45,8 @@ interface AboutInfo {
             </span>
           </h1>
           <div class="text-xl text-gray-300 space-y-1">
-            <p>{{ aboutData.location }}</p>
             <p>Age: {{ calculateAge() }}</p>
+            <p>Location: {{ aboutData.location }}</p>
           </div>
         </div>
 
@@ -122,9 +122,9 @@ interface AboutInfo {
 export class AboutComponent {
   aboutData: AboutInfo = {
     title: 'More About Me',
-    location: 'Oxford, Mississippi',
+    location: 'Oxford, MS',
     birthDate: new Date(2001, 9, 22), // Month is 0-based, so 9 is October
-    description: `Hi my name is Jonah. My interest in technology really started with Smart Home Automation and has grown into a passion for development. After I saw how much we can utilize technology to make our lives easier, I decided to start learning how to make meaningful applications that can help fix issues in my day-to-day life. I even went so far as building, and implementing my own home server to handle this new obsession. For the most part I am still learning, but that's what makes it more interesting. In the future I wish to complete more Web-Progressive projects that can be more easily accessable with iOS/Android/etc...`,
+    description: `My interest in technology really started with Smart Home Automation and has grown into a passion for development. After I saw how much we can utilize technology to make our lives easier, I decided to start learning how to make meaningful applications that can help fix issues in my day-to-day life. I even went so far as building, and implementing my own home server to handle this new obsession. For the most part I am still learning, but that's what makes it more interesting. In the future I wish to complete more Web-Progressive projects that can be more easily accessable with iOS/Android/etc...`,
     homeLab: [
       {
         name: 'UnRaid',
