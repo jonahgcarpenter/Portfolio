@@ -80,7 +80,7 @@ interface AboutInfo {
           <!-- HomeLab Section -->
           <div class="bg-purple-800/50 rounded-xl p-8 space-y-6">
             <h3 class="text-2xl font-semibold text-pink-400">My HomeLab Setup</h3>
-            <p class="text-gray-300 mb-6">I maintain two personal UnRaid servers where I experiment with various technologies and self-host services.</p>
+            <p class="text-gray-300 mb-6">I have implememted and currently maintain personal servers where I experiment with various technologies and self-hosted services.</p>
             <div class="space-y-6">
               <div *ngFor="let server of getDisplayedHomeLab()" class="border-l-4 border-pink-400 pl-4 space-y-2">
                 <div class="flex justify-between items-center">
