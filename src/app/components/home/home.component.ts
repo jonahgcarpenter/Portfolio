@@ -13,14 +13,14 @@ interface Education {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="home" class="text-white py-12 px-4 sm:px-6 lg:px-8">
+    <section id="home" class="text-white py-12 px-4">
       <div class="max-w-6xl mx-auto">
         <!-- Hero Section -->
-        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
-          <div class="flex-1 space-y-6">
+        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+          <div class="w-full space-y-6">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight">
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                Full Stack / Software Developer
+                Full Stack Developer
               </span>
             </h1>
             <p class="text-xl text-gray-300">
@@ -43,7 +43,7 @@ interface Education {
               </a>
             </div>
           </div>
-          <div class="relative w-full md:w-1/2">
+          <div class="w-3/4 md:w-1/2 mx-auto">
             <div class="aspect-square rounded-full overflow-hidden border-4 border-pink-500/30 shadow-xl shadow-purple-500/20">
               <img 
                 src="profilepic.jpg" 
@@ -66,7 +66,7 @@ interface Education {
               </p>
               <p class="text-gray-300 leading-relaxed">
                 Through my role at the IT Helpdesk and various personal development projects, I've learned to bridge the gap between complex technology and user-friendly solutions. I'm particularly passionate
-                about full-stack development and creating impactful software that solves real-world problems.
+                about full-stack development that solves real-world problems.
               </p>
               <p class="text-gray-300 leading-relaxed">
                 In my free time, you can find me exploring new technologies, contributing to my open-source projects,
