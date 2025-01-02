@@ -120,7 +120,7 @@ export class HomeComponent {
     {
       school: 'University of Mississippi',
       degree: 'Bachelor Degree in Computer Science',
-      year: '2025',
+      year: 'Spring 2025',
       description: 'Oxford, Mississippi'
     },
     {

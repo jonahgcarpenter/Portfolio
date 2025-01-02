@@ -113,8 +113,8 @@ export class WorkComponent {
   projects: Project[] = [
     {
       name: 'April\'s Lil Pugs',
-      description: 'A website I built and currently maintain for my mom\'s pug breeding business. Where I spent alot of time thinking of a create way to implement admin functionality for her to update the site without having to know how to code. Be aware, she gets the deciding vote on the design of the site.',
-      technologies: ['Vite:React','Firebase'],
+      description: 'A website I built and currently maintain for my mom\'s pug breeding business. The website also has a admin panel where my mom can add, edit, and delete from the website on her own.',
+      technologies: ['MongoDB','Express.js','React','Node.js'],
       liveLink: 'https://aprilslilpugs.com/',
       githubLink: 'https://github.com/jonahgcarpenter/ALP.git',
       imageUrl: 'alp.jpg'

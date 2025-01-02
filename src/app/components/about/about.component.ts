@@ -9,7 +9,6 @@ interface HomeLab {
 
 interface Language {
   name: string;
-  confidence: number;
   details: string;
 }
 
@@ -60,15 +59,14 @@ interface AboutInfo {
           <!-- Language Experience Section -->
           <div class="bg-purple-800/50 rounded-xl p-8 space-y-6">
             <h3 class="text-2xl font-semibold text-pink-400">Programming Languages</h3>
-            <p class="text-gray-300 mb-6">A collection of programming languages I've worked with, rated and sorted by my confidence level in using them effectively.</p>
+            <p class="text-gray-300 mb-6">A collection of programming languages I've worked with.</p>
             <div class="space-y-6">
               <div *ngFor="let lang of getDisplayedLanguages()" class="border-l-4 border-pink-400 pl-4 space-y-2">
                 <h4 class="text-xl font-semibold text-white">{{ lang.name }}</h4>
                 <p class="text-gray-300">{{ lang.details }}</p>
-                <p class="text-gray-400 text-sm">Confidence: {{ lang.confidence }}/10</p>
               </div>
               <button 
-                *ngIf="sortedLanguages.length > 3"
+                *ngIf="aboutData.languages.length > 3"
                 (click)="toggleLanguages()"
                 class="mt-4 px-4 py-2 bg-pink-500 hover:bg-pink-600 rounded-md transition-colors duration-200"
               >
@@ -123,8 +121,8 @@ export class AboutComponent {
   aboutData: AboutInfo = {
     title: 'More About Me',
     location: 'Oxford, MS',
-    birthDate: new Date(2001, 9, 22), // Month is 0-based, so 9 is October
-    description: `My interest in technology really started with Smart Home Automation and has grown into a passion for development. After I saw how much we can utilize technology to make our lives easier, I decided to start learning how to make meaningful applications that can help fix issues in my day-to-day life. I even went so far as building, and implementing my own home server to handle this new obsession. For the most part I am still learning, but that's what makes it more interesting. In the future I wish to complete more Web-Progressive projects that can be more easily accessable with iOS/Android/etc...`,
+    birthDate: new Date('2001-10-22'), // Changed to use ISO date format for better accuracy
+    description: `My interest in technology really started with Smart Home Automation and has grown into a passion for development. After I saw how much we can utilize technology to make our lives easier, I decided to start learning how to make meaningful applications that can help fix issues in my day-to-day life. I even went so far as building, and implementing my own home server to handle this new obsession. For the most part I am still learning, but that's what makes it more interesting.`,
     homeLab: [
       {
         name: 'UnRaid',
@@ -138,32 +136,17 @@ export class AboutComponent {
       },
       {
         name: 'Frigate',
-        purpose: 'A real-time object detection system for my security cameras. Where we also use Compreface for facial recognition to run automations in Home Assistant.',
+        purpose: 'A real-time object detection system and NVR for my security cameras.',
         specs: 'Docker Container'
       },
       {
         name: 'Double-Take',
-        purpose: 'Paired with Frigate, creates facial recognition automations in Home Assistant.',
+        purpose: 'Unified UI and API for processing and training images for facial recognition.',
         specs: 'Home Assistant Addon'
       },
       {
         name: 'Nginx-Proxy-Manager',
-        purpose: 'Best way to manage my forward / backwards proxies for all my web applications.',
-        specs: 'Docker Container'
-      },
-      {
-        name: 'Nginx',
-        purpose: 'Used to host my personal website and other web applications.',
-        specs: 'Docker Container'
-      },
-      {
-        name: 'MariaDB',
-        purpose: 'Main database server for all my applications.',
-        specs: 'Docker Container'
-      },
-      {
-        name: 'Cloudflare-DDNS',
-        purpose: 'Updates my DNS records for my web domains.',
+        purpose: 'Best way to manage network proxies for all my web applications.',
         specs: 'Docker Container'
       },
       {
@@ -175,59 +158,52 @@ export class AboutComponent {
     ],
     languages: [
       {
-        name: 'MySQL',
-        confidence: 8,
-        details: 'Majority of my projects at the University of Mississippi were built with the schools MariaDB server.'
+        name: 'SQL',
+        details: 'Proficient in database design, complex queries, and data manipulation using MariaDB and MySQL.'
       },
       {
-        name: 'React Frameworks',
-        confidence: 8,
-        details: 'All of my current projects are built with some version of React.'
+        name: 'React',
+        details: 'Experience building modern web applications with React, including hooks, context API, and state management.'
       },
       {
         name: 'PHP',
-        confidence: 8,
-        details: 'Majority of my projects at the University of Mississippi were built with PHP.'
+        details: 'Strong background in server-side development using PHP, particularly in academic projects at Ole Miss.'
       },
       {
         name: 'HTML',
-        confidence: 9,
-        details: 'Used in some of my web development projects for building responsive UIs.'
+        details: 'Extensive experience in semantic markup and modern HTML5 features for web development.'
       },
       {
         name: 'CSS',
-        confidence: 8,
-        details: 'To make things look pretty and responsive.'
+        details: 'Proficient in responsive design, CSS frameworks like Tailwind, and modern layout techniques.'
       },
       {
         name: 'TypeScript/JavaScript',
-        confidence: 7,
-        details: 'Have used in various projects for front-end and back-end development.'
+        details: 'Strong foundation in both frontend and backend development using modern ES6+ features and TypeScript.'
       },
       {
         name: 'Firebase',
-        confidence: 7,
-        details: 'Used for an easy database backend in my personal projects when applicable.'
+        details: 'Experience with Firebase Authentication, Realtime Database, and Cloud Functions for web applications.'
+      },
+      {
+        name: 'MongoDB',
+        details: 'Familiar with NoSQL database design and CRUD operations in MongoDB.'
       },
       {
         name: 'Python',
-        confidence: 4,
-        details: 'Used for simple scripts in my free time'
+        details: 'Experience with automation scripts and basic data processing tasks.'
       },
       {
         name: 'R',
-        confidence: 5,
-        details: 'I took some data science classes that primarily used R for visualizing data.'
+        details: 'Basic knowledge of data analysis and visualization techniques using R programming.'
       },
       {
         name: 'Java',
-        confidence: 3,
-        details: 'Developed small projects and algorithms while at Itawamba Community College.'
+        details: 'Foundation in object-oriented programming concepts through academic coursework.'
       },
       {
         name: 'C++',
-        confidence: 3,
-        details: 'Developed small projects and algorithms while at Itawamba Community College.'
+        details: 'Basic understanding of memory management and fundamental programming concepts.'
       }
     ],
     workExperience: [
@@ -254,12 +230,8 @@ export class AboutComponent {
   isLanguagesExpanded = false;
   isHomeLabExpanded = false;
 
-  get sortedLanguages(): Language[] {
-    return [...this.aboutData.languages].sort((a, b) => b.confidence - a.confidence);
-  }
-
   getDisplayedLanguages(): Language[] {
-    return this.isLanguagesExpanded ? this.sortedLanguages : this.sortedLanguages.slice(0, 3);
+    return this.isLanguagesExpanded ? this.aboutData.languages : this.aboutData.languages.slice(0, 3);
   }
 
   getDisplayedHomeLab(): HomeLab[] {
@@ -283,9 +255,15 @@ export class AboutComponent {
   calculateAge(): string {
     const today = new Date();
     const birthDate = this.aboutData.birthDate;
-    const years = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    const dayDiff = today.getDate() - birthDate.getDate();
+    let years = today.getFullYear() - birthDate.getFullYear();
+    
+    // Adjust age if birthday hasn't occurred this year
+    if (
+      today.getMonth() < birthDate.getMonth() || 
+      (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
+    ) {
+      years--;
+    }
     
     const days = Math.floor((today.getTime() - birthDate.getTime()) / (1000 * 60 * 60 * 24));
     
