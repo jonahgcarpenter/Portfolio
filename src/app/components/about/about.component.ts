@@ -65,7 +65,7 @@ interface AboutInfo {
                 <h4 class="text-xl font-semibold text-white">{{ lang.name }}</h4>
                 <p class="text-gray-300">{{ lang.details }}</p>
               </div>
-              <button 
+              <button
                 *ngIf="aboutData.languages.length > 3"
                 (click)="toggleLanguages()"
                 class="mt-4 px-4 py-2 bg-pink-500 hover:bg-pink-600 rounded-md transition-colors duration-200"
@@ -87,7 +87,7 @@ interface AboutInfo {
                 <p class="text-gray-300">{{ server.purpose }}</p>
                 <p *ngIf="server.specs" class="text-gray-400 text-sm">{{ server.specs }}</p>
               </div>
-              <button 
+              <button
                 *ngIf="aboutData.homeLab.length > 4"
                 (click)="toggleHomeLab()"
                 class="mt-4 px-4 py-2 bg-pink-500 hover:bg-pink-600 rounded-md transition-colors duration-200"
@@ -199,7 +199,7 @@ export class AboutComponent {
       },
       {
         name: 'Java',
-        details: 'Experience building robust backend services using Spring Boot; strong understanding of object-oriented programming.'
+        details: 'Experience building robust backend services using Spring Boot; basic understanding of object-oriented programming.'
       },
       {
         name: 'C++',
@@ -256,17 +256,17 @@ export class AboutComponent {
     const today = new Date();
     const birthDate = this.aboutData.birthDate;
     let years = today.getFullYear() - birthDate.getFullYear();
-    
+
     // Adjust age if birthday hasn't occurred this year
     if (
-      today.getMonth() < birthDate.getMonth() || 
+      today.getMonth() < birthDate.getMonth() ||
       (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
     ) {
       years--;
     }
-    
+
     const days = Math.floor((today.getTime() - birthDate.getTime()) / (1000 * 60 * 60 * 24));
-    
+
     return `${years} years (${days} days)`;
   }
 }
