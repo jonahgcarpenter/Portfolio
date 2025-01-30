@@ -122,7 +122,7 @@ export class AboutComponent {
     title: 'More About Me',
     location: 'Oxford, MS',
     birthDate: new Date('2001-10-22'), // Changed to use ISO date format for better accuracy
-    description: `My interest in technology really started with Smart Home Automation and has grown into a passion for development. After I saw how much we can utilize technology to make our lives easier, I decided to start learning how to make meaningful applications that can help fix issues in my day-to-day life. I even went so far as building, and implementing my own home server to handle this new obsession. For the most part I am still learning, but that's what makes it more interesting.`,
+    description: `My journey into technology began with a fascination for Smart Home Automation, which quickly evolved into a passion for software development. Witnessing how technology can simplify and enhance everyday life inspired me to start creating meaningful applications to solve real-world problems. This curiosity led me to build and implement my own home server to support my growing interests. I'm constantly learning and evolving as a developer, and it's this continuous pursuit of knowledge that keeps me excited about what I do.`,
     homeLab: [
       {
         name: 'UnRaid',
@@ -191,7 +191,7 @@ export class AboutComponent {
       },
       {
         name: 'Python',
-        details: 'Experience with automation scripts and basic data processing tasks.'
+        details: 'Skilled in developing Flask APIs, automation scripts, and basic data processing tasks.'
       },
       {
         name: 'R',
@@ -199,7 +199,7 @@ export class AboutComponent {
       },
       {
         name: 'Java',
-        details: 'Foundation in object-oriented programming concepts through academic coursework.'
+        details: 'Experience building robust backend services using Spring Boot; strong understanding of object-oriented programming.'
       },
       {
         name: 'C++',
